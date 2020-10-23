@@ -29,8 +29,13 @@ app.use((req, res, next) => {
   next();
 });
 
+<<<<<<< HEAD
 
 // this is another test
+=======
+// this is a test
+
+>>>>>>> submain
 
 app.get('/', (req, res) => {
   res.render('index');
