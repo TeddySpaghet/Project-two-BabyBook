@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 
 // this is another test
 // this is a test
-// this is Ted's test
+// this is ted's test
 
 app.get('/', (req, res) => {
   res.render('index');
