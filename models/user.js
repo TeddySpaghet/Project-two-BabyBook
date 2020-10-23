@@ -13,7 +13,7 @@ class user extends Model {
      */
     static associate(models) {
       // define association here
-
+      models.user.hasMany(models.baby)
     }
 
     // Compares entered pasword to a hashed password (runs on login)
