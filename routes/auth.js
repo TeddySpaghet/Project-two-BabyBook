@@ -24,7 +24,7 @@ router.post('/signup', (req, res) => {
     if (created) {
        // FLASH
         passport.authenticate('local', {
-        successRedirect: '/',
+        successRedirect: '/profile',
         successFlash: 'Account created and logged in'
       })(req, res);
     } else {
@@ -67,7 +67,7 @@ router.post('/signup', (req, res) => {
     if (created) {
       console.log('user created');
       passport.authenticate('local', {
-        successRedirect: '/',
+        successRedirect: '/profile',
       })(req, res);
     } else {
       console.log('email already exists');

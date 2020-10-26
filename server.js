@@ -135,7 +135,7 @@ app.get('/profile', isLoggedIn, (req, res) => {
 
 app.use('/auth', require('./routes/auth'));
 app.use('/post', require('./routes/post'));
-app.use('/show', require('./routes/babies'));
+app.use('/profile', require('./routes/profile'));
 
 var server = app.listen(process.env.PORT || 3000, ()=> console.log(`🎧You're listening to the smooth sounds of port ${process.env.PORT || 3000}🎧`));
 
