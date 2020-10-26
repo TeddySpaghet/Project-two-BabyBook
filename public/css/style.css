@@ -1,12 +1,31 @@
+
+
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0 auto;
+  background-color:#F2F0DF;
+}
+
 nav ul li {
   text-decoration: none;
   display: inline-block;
   margin-right: .3em;
 }
 
-h1 {
+/* h1 {
   color: chartreuse;
-}
+} */
+/* .container{
+
+} */
 .nav{
-  background-color: aquamarine;
+  /* background-color:#2B8CAB; */
+  background-color: tomato;
+}
+.btn-select{
+  background-color: slategrey;
 }
