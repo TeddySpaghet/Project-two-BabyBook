@@ -10,12 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-<<<<<<< HEAD
-      models.post.belongsTo(models.baby)
-=======
       // define association here
       models.post.belongsTo(models.baby);
->>>>>>> submain
     }
   };
   post.init({
