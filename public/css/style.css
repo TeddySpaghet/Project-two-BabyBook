@@ -16,15 +16,40 @@ nav ul li {
   margin-right: .3em;
 }
 
-/* h1 {
-  color: chartreuse;
-} */
-/* .container{
+h5{
+  text-transform: uppercase;
+}
+.card{
+  width: 250px;
+  height: 250px;
+  text-align: center;
+  border-radius: 20px;
+  
+}
+.card-image{
+  border-radius: 20px;
+  height:250px;
+}
+.card-action{
+  border-radius: 20px;
+}  
 
-} */
+
+
+.container{
+  text-align: center;
+  padding:30px;
+}
+.container-flex{
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
 .nav{
-  /* background-color:#2B8CAB; */
   background-color: tomato;
+  background-color:#2B8CAB;
 }
 .btn-select{
   background-color: slategrey;

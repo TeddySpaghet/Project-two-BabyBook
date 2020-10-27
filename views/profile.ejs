@@ -1,32 +1,94 @@
 <div class="container">
    <h5><%= currentUser.name %>'s profile </h5>
-   <div class="row">
-      <form class="col s8" method="POST" action="/profile">
-         <h6>Create a new baby profile: </h6>
-         <div class="row">
-            <div class="input-field col s8">
-               <label for="name">Your Baby's Name</label>
-               <input id="baby_name" type="text" class="validate" name="name">
+
+
+   <div class="container-flex">
+      <% for(let i = 0; i< 2;i++){ %>
+      <div class="row">
+         <div class="col s12 m7">
+            <div class="card small">
+               <div class="card-image">
+                  <img src="images/01month.jpg">
+                  <!-- <span class="card-title">baby name</span> -->
+                  <!-- <span class="card-title"><%= //baby.name %> </span> -->
+               </div>
+               <!-- <div class="card-content">
+                  <p>I am a very simple card. I am good at containing small bits of information.
+                  I am convenient because I require little markup to use effectively.</p>
+                </div> -->
+               <div class="card-action">
+                  <!-- <a href="/show">Baby name <% //i+1  %> </a> -->
+                  <a href="/show"><%= currentUser.baby %> </a>
+               </div>
             </div>
-            <div class="input-field col s8">
-               <input id="baby_birthdate" type="date" class="validate" name="birthdate">
-               <label for="birthdate">Your Baby's Birthdate</label>
-            </div>
-            <div class="file-field col s8 input-field">
+         </div>
+      </div>
+      <% }  %>
+
+
+
+
+
+      <div class="row">
+         <form class="col s12 m7" method="POST" action="/profile">
+            <div class="card small">
+               <br>
+               <h6>Create a new baby profile: </h6>
+               <div class="input-field col s12">
+                  <label for="name">Your Baby's Name</label>
+                  <input id="baby_name" type="text" class="validate" name="name">
+               </div>
+               <div class="input-field col s12">
+                  <input id="baby_birthdate" type="date" class="validate" name="birthdate">
+                  <label for="birthdate">Your Baby's Birthdate</label>
+                  <input type="hidden" name="userId" value=<%= currentUser.Id %> />
+               </div>
+               <!-- <div class="file-field col s6 input-field">
                <div class="btn btn-select">
                   <span>File</span>
                   <input type="file">
                </div>
                <div class="file-path-wrapper">
                   <input class="file-path validate" type="text">
-               </div>
-               <br>
+               </div> -->
                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                   <i class="material-icons right"></i>
                </button>
             </div>
-      </form>
+         </form>
+      </div>
+
+
+
+      <!-- <div class="row">
+         <form class="col s6" method="POST" action="/profile">
+            <h6>Create a new baby profile: </h6>
+            <div class="row">
+               <div class="input-field col s6">
+                  <label for="name">Your Baby's Name</label>
+                  <input id="baby_name" type="text" class="validate" name="name">
+               </div>
+               <div class="input-field col s6">
+                  <input id="baby_birthdate" type="date" class="validate" name="birthdate">
+                  <label for="birthdate">Your Baby's Birthdate</label>
+               </div>
+               <!-- <div class="file-field col s6 input-field">
+               <div class="btn btn-select">
+                  <span>File</span>
+                  <input type="file">
+               </div>
+               <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+               </div> -->
+               <!-- <br> -->
+            <!-- </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+               <i class="material-icons right"></i>
+            </button>
+         </form>
+      </div> -->
+
+
+
+
    </div>
-</div>
-</div>
-</div>
