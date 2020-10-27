@@ -1,3 +1,4 @@
+/*
 const express = require('express');
 const isLoggedIn = require('../middleware/isLoggedIn');
 const db = require('../models')
@@ -8,18 +9,18 @@ const babyRouter = express.Router({mergeParams: true});
 router.use('/:name/post', babyRouter);
 
 router.get('/', isLoggedIn,(req, res) => {
-    req.user;
+    console.log("this is the baby's page ROUTE");
     db.baby.findOne({
         where: { name: req.params.name, userId: req.user.id, }
     })
     .then((baby) => {
-        if (!baby) throw Error()
         res.render('baby/show', { baby: baby })
     })
     .catch((error) => {
         req.flash('error', error.message);
     })
 })
+
 
 router.post('/', (req, res) => {
     db.post.create({
@@ -32,6 +33,7 @@ router.post('/', (req, res) => {
         babyId: req.user.baby.dataValues.id,
     })
     .then((post) => {
+        if (!post) throw Error()
     res.redirect('baby/show')
     })
     .catch((error) => {
@@ -40,3 +42,4 @@ router.post('/', (req, res) => {
 })
 
 module.exports = router;
+*/

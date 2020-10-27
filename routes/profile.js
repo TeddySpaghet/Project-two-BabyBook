@@ -39,6 +39,7 @@ router.post('/', (req, res) => {
 
 
 
+
 router.get('/:name', (req, res) => {
     db.baby.findOne({
         where: { name: req.params.name, userId: req.user.id, }
@@ -48,9 +49,10 @@ router.get('/:name', (req, res) => {
         res.render('baby/show', { baby: baby })
     })
     .catch((error) => {
-        res.status(400).render('partials/alerts')
+        req.flash('error', error.message);
     })
-    })
+    }) 
 
 
+//router.use('/profile/:name', require('./routes/babyProfile'));
 module.exports = router;
