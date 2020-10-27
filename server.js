@@ -83,27 +83,14 @@ app.use((req, res, next) => {
 
 
 
-// this is another test
-// this is a test
-// this is ted's test 2
-
-
-
-// this is another test
-
-// this is a test
-
-
-
-
 app.get('/', (req, res) => {
   res.render('index');
 });
 
 
-app.get('/profile', isLoggedIn, (req, res) => {
-  res.render('profile');
-});
+//app.get('/profile', isLoggedIn, (req, res) => {
+//  res.render('profile');
+//});
 
 // // multer image upload post route
 // app.post('/upload', (req, res)=>{
@@ -134,7 +121,7 @@ app.get('/profile', isLoggedIn, (req, res) => {
 
 
 app.use('/auth', require('./routes/auth'));
-app.use('/post', require('./routes/post'));
+//app.use('/profile/:name/post', require('./routes/post'));
 app.use('/profile', require('./routes/profile'));
 
 var server = app.listen(process.env.PORT || 3000, ()=> console.log(`🎧You're listening to the smooth sounds of port ${process.env.PORT || 3000}🎧`));
