@@ -18,7 +18,7 @@ router.get('/', isLoggedIn,(req, res) => {
         })
         .catch((error) => {
             console.log('Error in GET /', error)
-            res.status(400).render('partials/alert')
+            req.flash('error', error.message);
         })
 });
 
@@ -29,10 +29,11 @@ router.post('/', (req, res) => {
     userId: req.user.id,    
     })
     .then((baby) => {
+        if (!baby) throw Error()
     res.redirect('/profile')
     })
     .catch((error) => {
-    res.status(400).render('partials/alerts')
+        req.flash('error', error.message);
     })
 })
 

@@ -1,5 +1,5 @@
-/*
 const express = require('express');
+const isLoggedIn = require('../middleware/isLoggedIn');
 const db = require('../models')
 const router = express.Router();
 const babyRouter = express.Router({mergeParams: true});
@@ -7,7 +7,7 @@ const babyRouter = express.Router({mergeParams: true});
 //nesting routes
 router.use('/:name/post', babyRouter);
 
-router.get('/', (req, res) => {
+router.get('/', isLoggedIn,(req, res) => {
     req.user;
     db.baby.findOne({
         where: { name: req.params.name, userId: req.user.id, }
@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
         res.render('baby/show', { baby: baby })
     })
     .catch((error) => {
-        res.status(400).render('partials/alerts')
+        req.flash('error', error.message);
     })
 })
 
@@ -35,9 +35,8 @@ router.post('/', (req, res) => {
     res.redirect('baby/show')
     })
     .catch((error) => {
-    res.status(400).render('partials/alerts')
+        req.flash('error', error.message);
     })
 })
 
 module.exports = router;
-*/
