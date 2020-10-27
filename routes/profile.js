@@ -2,23 +2,17 @@ const express = require('express');
 const db = require('../models')
 const router = express.Router();
 
-
 router.get('/', (req, res) => {
     res.locals.currentUser
     res.render('profile');
 });
 
-
 router.post('/', (req, res) => {
-    // let userId = currentUser.id
-    // res.locals.currentUser
-    console.log('line 15:',res.locals.currentUser)
-
+    //res.locals.currentUser
     db.baby.create({
     name: req.body.name,
     birthdate: req.body.birthdate,
-    // userId: req.currentUser.dataValues.id,
-    // userId: userId
+    //userId: currentUser.id,
     
     })
     .then((baby) => {
