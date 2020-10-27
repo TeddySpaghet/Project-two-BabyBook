@@ -34,22 +34,28 @@ router.post('/', (req, res) => {
     .catch((error) => {
     res.status(400).render('partials/alerts')
     })
+        .then((baby) => {
+            res.redirect('/profile')
+        })
+        .catch((error) => {
+            res.status(400).render('partials/alerts')
+        })
 })
-
 
 
 router.get('/:name', (req, res) => {
     db.baby.findOne({
         where: { name: req.params.name, userId: req.user.id, }
     })
-    .then((baby) => {
-        if (!baby) throw Error()
-        res.render('baby/show', { baby: baby })
-    })
-    .catch((error) => {
-        res.status(400).render('partials/alerts')
-    })
-    })
+        .then((baby) => {
+            if (!baby) throw Error()
+            res.render('baby/show', { baby: baby })
+        })
+        .catch((error) => {
+            res.status(400).render('partials/alerts')
+        })
+})
+
 
 
 module.exports = router;
