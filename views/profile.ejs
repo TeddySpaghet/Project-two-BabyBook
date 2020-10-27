@@ -74,6 +74,9 @@
       </div>
 
 </div>
+<% if (babies.length < 1) { %>
+    <h4>Better get to making those babies!</h4>
+<% } %>
 
 
 
@@ -112,3 +115,10 @@
 
 
 
+<% babies.forEach(function(baby) { %>
+    <div>
+        <h2>
+        <a href="/profile/<%= baby.name %>"><%= baby.name %></a>
+        </h2>
+    </div>
+<% }); %>

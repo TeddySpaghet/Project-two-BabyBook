@@ -1,3 +1,4 @@
+/*
 const express = require('express');
 const db = require('../models')
 const router = express.Router();
@@ -7,9 +8,9 @@ const babyRouter = express.Router({mergeParams: true});
 router.use('/:name/post', babyRouter);
 
 router.get('/', (req, res) => {
-    res.locals.currentUser
+    req.user;
     db.baby.findOne({
-        where: { name: req.params.name }
+        where: { name: req.params.name, userId: req.user.id, }
     })
     .then((baby) => {
         if (!baby) throw Error()
@@ -18,7 +19,6 @@ router.get('/', (req, res) => {
     .catch((error) => {
         res.status(400).render('partials/alerts')
     })
-    res.render('/profife/:name')
 })
 
 router.post('/', (req, res) => {
@@ -29,10 +29,10 @@ router.post('/', (req, res) => {
         title: req.body.title,
         firsts: req.body.firsts,
         favorites: req.body.favorites,
-        //babyId: req.body.currentBaby.id,
+        babyId: req.user.baby.dataValues.id,
     })
     .then((post) => {
-    res.redirect('/profile/:name')
+    res.redirect('baby/show')
     })
     .catch((error) => {
     res.status(400).render('partials/alerts')
@@ -40,3 +40,4 @@ router.post('/', (req, res) => {
 })
 
 module.exports = router;
+*/
