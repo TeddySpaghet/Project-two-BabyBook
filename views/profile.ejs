@@ -18,7 +18,7 @@
                 </div> -->
                <div class="card-action">
                   <!-- <a href="/show">Baby name <% //i+1  %> </a> -->
-                  <a href="/show"><%= currentUser.baby %> </a>
+                  <a href="/show"><%= currentUser.name %> </a>
                </div>
             </div>
          </div>
@@ -26,6 +26,21 @@
       <% }  %>
 
 
+
+      <div id="modal1" class="modal">
+         <div class="modal-content">
+           <h4>Modal Header</h4>
+           <p>A bunch of text</p>
+         </div>
+         <div class="modal-footer">
+           <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+         </div>
+       </div>
+
+       <!-- <button data-target="#modal1" class="btn modal-trigger">Modal via button</button> -->
+
+       <a id="create-profile" class="waves-effect waves-light btn modal-trigger"href="#modal1">Modal via link</a>
+       <!-- <a class="waves-effect waves-light btn modal-trigger" onclick="openModal()" href="#modal1">Modal via link</a> -->
 
 
 
@@ -43,7 +58,7 @@
                   <label for="birthdate">Your Baby's Birthdate</label>
                   <input type="hidden" name="userId" value=<%= currentUser.Id %> />
                </div>
-               <!-- <div class="file-field col s6 input-field">
+               <!-- <div class="file-field col s12 input-field">
                <div class="btn btn-select">
                   <span>File</span>
                   <input type="file">
@@ -58,37 +73,42 @@
          </form>
       </div>
 
-
-
-      <!-- <div class="row">
-         <form class="col s6" method="POST" action="/profile">
-            <h6>Create a new baby profile: </h6>
-            <div class="row">
-               <div class="input-field col s6">
-                  <label for="name">Your Baby's Name</label>
-                  <input id="baby_name" type="text" class="validate" name="name">
-               </div>
-               <div class="input-field col s6">
-                  <input id="baby_birthdate" type="date" class="validate" name="birthdate">
-                  <label for="birthdate">Your Baby's Birthdate</label>
-               </div>
-               <!-- <div class="file-field col s6 input-field">
-               <div class="btn btn-select">
-                  <span>File</span>
-                  <input type="file">
-               </div>
-               <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text">
-               </div> -->
-               <!-- <br> -->
-            <!-- </div>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-               <i class="material-icons right"></i>
-            </button>
-         </form>
-      </div> -->
+</div>
 
 
 
+<script>
 
-   </div>
+// <!-- js method of calling modal -->
+//document.addEventListener('DOMContentLoaded', function() { 
+//   let elems = document.querySelectorAll('.modal');
+//   // let elems = document.getElementById('create-profile');
+//   let instances = M.Modal.init(elems, options);
+//   })
+
+
+</script>
+
+<script src="js/modal.js"></script>
+
+
+
+<!-- js method of calling modal -->
+<% //document.addEventListener('DOMContentLoaded', function() { %> 
+   <% // let elems = document.querySelectorAll('.modal'); %>
+   <% //let instances = M.Modal.init(elems, options); %>
+   <% //}) %>
+
+   <!-- jquery method of calling modal -->
+<!-- $(document).ready(function () { -->
+    <!-- $('.modal').modal(); -->
+<!-- }) -->
+
+
+
+
+
+
+
+
+
