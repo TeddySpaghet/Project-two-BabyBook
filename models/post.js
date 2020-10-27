@@ -27,4 +27,4 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'post',
   });
   return post;
-};
+}; 
