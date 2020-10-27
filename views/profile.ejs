@@ -1,32 +1,34 @@
 <div class="container">
-   <h5><%= currentUser.name %>'s profile </h5>
-   <div class="row">
-      <form class="col s8" method="POST" action="/profile">
-         <h6>Create a new baby profile: </h6>
-         <div class="row">
-            <div class="input-field col s8">
-               <label for="name">Your Baby's Name</label>
-               <input id="baby_name" type="text" class="validate" name="name">
+    <h5><%= currentUser.name %>'s profile </h5>
+    <div class="row">
+        <form class="col s8" method="POST" action="/profile">
+            <h6>Create a new baby profile: </h6>
+            <div class="row">
+                <div class="input-field col s8">
+                <label for="name">Your Baby's Name</label>
+                <input id="baby_name" type="text" class="validate" name="name">
+                </div>
+                <div class="input-field col s8">
+                <input id="baby_birthdate" type="date" class="validate" name="birthdate">
+                <label for="birthdate">Your Baby's Birthdate</label>
+                </div>
+                <!--<div class="file-field col s8 input-field">
+                <div class="btn btn-select">
+                    <span>File</span>
+                    <input type="file">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>-->
+                <br>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right"></i>
+                </button>
             </div>
-            <div class="input-field col s8">
-               <input id="baby_birthdate" type="date" class="validate" name="birthdate">
-               <label for="birthdate">Your Baby's Birthdate</label>
-            </div>
-            <div class="file-field col s8 input-field">
-               <div class="btn btn-select">
-                  <span>File</span>
-                  <input type="file">
-               </div>
-               <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text">
-               </div>
-               <br>
-               <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                  <i class="material-icons right"></i>
-               </button>
-            </div>
-      </form>
-   </div>
+        </form>
+    </div>
 </div>
 </div>
 </div>
+
+<h1><%= //baby.name %></h1>
