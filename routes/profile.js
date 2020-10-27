@@ -1,20 +1,18 @@
 const express = require('express');
 const db = require('../models')
-const moment = require("moment");
-const app = express();
 const router = express.Router();
 
-
-app.use((req, res, next)=>{
-    res.locals.moment = moment;
-    next();
+router.get('/', (req, res) => {
+    res.locals.currentUser
+    res.render('profile');
 });
 
-
 router.post('/', (req, res) => {
+    //res.locals.currentUser
     db.baby.create({
     name: req.body.name,
     birthdate: req.body.birthdate,
+    //userId: currentUser.id,
     
     })
     .then((baby) => {
@@ -25,10 +23,7 @@ router.post('/', (req, res) => {
     })
 })
 
-router.get('/', (req, res) => {
-    res.locals.currentUser
-    res.render('profile');
-});
+
 
 router.get('/:name', (req, res) => {
     db.baby.findOne({
