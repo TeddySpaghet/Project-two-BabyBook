@@ -35,24 +35,67 @@ router.post('/', (req, res) => {
     .catch((error) => {
         req.flash('error', error.message);
     })
+        .then((baby) => {
+            res.redirect('/profile')
+        })
+        .catch((error) => {
+            res.status(400).render('partials/alerts')
+        })
 })
 
 
 
 
 router.get('/:name', (req, res) => {
+    
     db.baby.findOne({
         where: { name: req.params.name, userId: req.user.id, }
     })
     .then((baby) => {
+        console.log(baby.id)
         if (!baby) throw Error()
+        
         res.render('baby/show', { baby: baby })
     })
     .catch((error) => {
         req.flash('error', error.message);
     })
-    }) 
+}) 
+router.post('/:name', (req, res) => {
+    db.post.create({
+        height: req.body.height,
+        weight: req.body.weight,
+        img: req.body.img,
+        title: req.body.title,
+        firsts: req.body.firsts,
+        favorites: req.body.favorites,
+        babyId: req.body.baby.id,
+    })
+    .then((post) => {
+        if (!post) throw Error()
+    res.redirect('baby/show')
+    })
+    .catch((error) => {
+        req.flash('error', error.message);
+    })
+})
+/*
+router.get('/:name/:id', (req, res) => {
+    db.baby.findOne({
+        where: { name: req.params.name, userId: req.user.id, }
+    })
+    .then((baby) => {
+        if (!baby) throw Error()
+        
+        res.render('baby/show', { baby: baby })
+    })
+    .catch((error) => {
+        req.flash('error', error.message);
+    })
+})
+
 
 
 //router.use('/profile/:name', require('./routes/babyProfile'));
+*/
 module.exports = router;

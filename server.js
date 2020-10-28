@@ -88,10 +88,6 @@ app.get('/', (req, res) => {
 });
 
 
-//app.get('/profile', isLoggedIn, (req, res) => {
-//  res.render('profile');
-//});
-
 // // multer image upload post route
 // app.post('/upload', (req, res)=>{
 //   upload(req, res, (err)=>{
