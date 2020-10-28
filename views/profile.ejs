@@ -20,7 +20,7 @@
       </div>
       <% } ) %>
 
-      <div class="card small"style="align-items:center;">
+      <div class="card small" style="align-items:center;">
          <div id="modal1" class="modal">
             <div class="modal-content">
                <form class="col s12 m7" method="POST" action="/profile">
@@ -33,7 +33,7 @@
                   <div class="input-field col s12">
                      <input id="baby_birthdate" type="date" class="validate" name="birthdate">
                      <label for="birthdate">Your Baby's Birthdate</label>
-                     <input type="hidden" name="userId" value=<%= currentUser.Id %> />
+                     <input type="hidden" name="userId" value=<%= currentUser.id %> />
                   </div>
                   <!-- once we get the image upload functioning, this allows us to select a file to upload -->
                   <!-- <div class="file-field col s12 input-field">
@@ -58,15 +58,4 @@
             <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
          </div>
       </div>
-
-
-
-
-  
-
-
-
-
-
-
       <script src="js/modal.js"></script>
