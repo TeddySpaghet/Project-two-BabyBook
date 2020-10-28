@@ -35,12 +35,6 @@ router.post('/', (req, res) => {
     .catch((error) => {
         req.flash('error', error.message);
     })
-        .then((baby) => {
-            res.redirect('/profile')
-        })
-        .catch((error) => {
-            res.status(400).render('partials/alerts')
-        })
 })
 
 
@@ -52,50 +46,81 @@ router.get('/:name', (req, res) => {
         where: { name: req.params.name, userId: req.user.id, }
     })
     .then((baby) => {
-        console.log(baby.id)
+        console.log("this is the baby id: " , baby.id)
         if (!baby) throw Error()
+        db.post.findAll({
+            where: { 
+                babyId: baby.id
+            }
+        })
         
-        res.render('baby/show', { baby: baby })
+            .then((posts) => {
+                //console.log("here are the " + posts);
+                //console.log(typeof(posts));
+                res.render('baby/show', { posts: posts, baby: baby })
+            })
+            .catch((error) => {
+                console.log('Error in GET /', error)
+                req.flash('error', error.message);
+            })
     })
     .catch((error) => {
         req.flash('error', error.message);
     })
-}) 
+    
+})
+
 router.post('/:name', (req, res) => {
     db.post.create({
         height: req.body.height,
         weight: req.body.weight,
-        img: req.body.img,
+        //img: req.body.img,
         title: req.body.title,
         firsts: req.body.firsts,
         favorites: req.body.favorites,
-        babyId: req.body.baby.id,
+        babyId: 14 //req.body.baby.id,
     })
     .then((post) => {
         if (!post) throw Error()
-    res.redirect('baby/show')
+    res.redirect('/profile/:name')
     })
     .catch((error) => {
         req.flash('error', error.message);
     })
 })
-/*
+
 router.get('/:name/:id', (req, res) => {
-    db.baby.findOne({
+db.baby.findOne({
         where: { name: req.params.name, userId: req.user.id, }
     })
     .then((baby) => {
+        console.log("this is the baby id: " , baby.id)
         if (!baby) throw Error()
+        db.post.findAll({
+            where: { 
+                babyId: baby.id,
+                id: post.id,
+            }
+        })
         
-        res.render('baby/show', { baby: baby })
+            .then((posts) => {
+                console.log("here are the " + posts + "at line 107");
+                //console.log(typeof(posts));
+                res.render('baby/post', { posts: posts, baby: baby })
+            })
+            .catch((error) => {
+                console.log('Error in GET /', error)
+                req.flash('error', error.message);
+            })
     })
     .catch((error) => {
         req.flash('error', error.message);
     })
+    
 })
 
 
-
+/*
 //router.use('/profile/:name', require('./routes/babyProfile'));
 */
 module.exports = router;
