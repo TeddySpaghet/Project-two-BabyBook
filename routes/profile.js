@@ -22,6 +22,26 @@ router.get('/', isLoggedIn,(req, res) => {
         })
 });
 
+// router.post('/', (req, res) => {
+//     db.baby.create({
+//     name: req.body.name,
+//     birthdate: req.body.birthdate,
+//     userId: req.user.id,    
+//     })
+//     .then((baby) => {
+//     res.redirect('/profile')
+//     })
+//     .catch((error) => {
+//     res.status(400).render('partials/alerts')
+//     })
+//         .then((baby) => {
+//             res.redirect('/profile')
+//         })
+//         .catch((error) => {
+//             res.status(400).render('partials/alerts')
+//         })
+// })
+
 router.post('/', (req, res) => {
     db.baby.create({
     name: req.body.name,
@@ -29,18 +49,17 @@ router.post('/', (req, res) => {
     userId: req.user.id,    
     })
     .then((baby) => {
+        if (!baby) throw Error()
     res.redirect('/profile')
     })
     .catch((error) => {
-    res.status(400).render('partials/alerts')
+        req.flash('error', error.message);
     })
-        .then((baby) => {
-            res.redirect('/profile')
-        })
-        .catch((error) => {
-            res.status(400).render('partials/alerts')
-        })
 })
+
+
+
+
 
 
 router.get('/:name', (req, res) => {

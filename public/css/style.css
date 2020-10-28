@@ -20,21 +20,21 @@ h5{
   text-transform: uppercase;
 }
 .card{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+
   width: 250px;
-  height: 250px;
+  /* height: 250px; */
   text-align: center;
   border-radius: 20px;
   
   
   
 }
+
+
 .card-image{
   border-radius: 20px 20px 0px 0px;
-  height:180px;
-  width: 250px;
+  /* height:180px;
+  width: 250px; */
   
 }
 .card-action{
@@ -66,4 +66,9 @@ h5{
 }
 .btn-select{
   background-color: slategrey;
+}
+.create-post{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
