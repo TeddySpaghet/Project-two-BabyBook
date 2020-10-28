@@ -46,7 +46,7 @@ router.get('/:name', (req, res) => {
         where: { name: req.params.name, userId: req.user.id, }
     })
     .then((baby) => {
-        console.log("this is the baby id: " , baby.id)
+        console.log("this is the baby id at line 49: " , baby.id)
         if (!baby) throw Error()
         db.post.findAll({
             where: { 
@@ -55,8 +55,8 @@ router.get('/:name', (req, res) => {
         })
         
             .then((posts) => {
-                //console.log("here are the " + posts);
-                //console.log(typeof(posts));
+                console.log("here are the " + posts + " at line 58");
+                console.log(typeof(posts));
                 res.render('baby/show', { posts: posts, baby: baby })
             })
             .catch((error) => {
@@ -72,17 +72,18 @@ router.get('/:name', (req, res) => {
 
 router.post('/:name', (req, res) => {
     db.post.create({
+
         height: req.body.height,
         weight: req.body.weight,
         //img: req.body.img,
         title: req.body.title,
         firsts: req.body.firsts,
         favorites: req.body.favorites,
-        babyId: 14 //req.body.baby.id,
+        babyId: req.body.babyId,
     })
     .then((post) => {
-        if (!post) throw Error()
-    res.redirect('/profile/:name')
+        console.log("post created!!!! NICE line 85")
+    res.redirect('/profile/' + req.params.name)
     })
     .catch((error) => {
         req.flash('error', error.message);
@@ -94,19 +95,21 @@ db.baby.findOne({
         where: { name: req.params.name, userId: req.user.id, }
     })
     .then((baby) => {
-        console.log("this is the baby id: " , baby.id)
+        //console.log("this is the post id: " , posts.id);
+        console.log("this is the baby id at line 98: " , baby.id)
+        //console.log("this is the post id: " , posts.id);
         if (!baby) throw Error()
-        db.post.findAll({
+        db.post.findOne({
             where: { 
                 babyId: baby.id,
-                id: post.id,
+                id: req.params.id,
             }
         })
         
-            .then((posts) => {
-                console.log("here are the " + posts + "at line 107");
+            .then((post) => {
+                console.log("here are the " + post + "at line 107");
                 //console.log(typeof(posts));
-                res.render('baby/post', { posts: posts, baby: baby })
+                res.render('baby/posts', { post: post, baby: baby })
             })
             .catch((error) => {
                 console.log('Error in GET /', error)

@@ -18,7 +18,15 @@ module.exports = (sequelize, DataTypes) => {
     height: DataTypes.INTEGER,
     weight: DataTypes.INTEGER,
     img: DataTypes.STRING,
-    title: DataTypes.STRING,
+    title: {
+      type:  DataTypes.STRING,
+      validate: {
+        len: {
+        args: [1,20],
+        msg: 'Title must be between 1 and 20 characters.'
+        }
+      }
+    },
     firsts: DataTypes.TEXT,
     favorites: DataTypes.TEXT,
     babyId: DataTypes.INTEGER
