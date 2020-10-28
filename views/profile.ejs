@@ -20,6 +20,7 @@
         </div>
         <% } ) %>
 
+<<<<<<< HEAD
         <div class="card small"style="align-items:center;">
             <div id="modal1" class="modal">
             <div class="modal-content">
@@ -39,6 +40,26 @@
                     <!-- once we get the image upload functioning, this allows us to select a file to upload -->
                     <!-- <div class="file-field col s12 input-field">
                         <div class="btn btn-select">
+=======
+      <div class="card small" style="align-items:center;">
+         <div id="modal1" class="modal">
+            <div class="modal-content">
+               <form class="col s12 m7" method="POST" action="/profile">
+                  <br>
+
+                  <div class="input-field col s12">
+                     <label for="name">Your Baby's Name</label>
+                     <input id="baby_name" type="text" class="validate" name="name">
+                  </div>
+                  <div class="input-field col s12">
+                     <input id="baby_birthdate" type="date" class="validate" name="birthdate">
+                     <label for="birthdate">Your Baby's Birthdate</label>
+                     <input type="hidden" name="userId" value=<%= currentUser.id %> />
+                  </div>
+                  <!-- once we get the image upload functioning, this allows us to select a file to upload -->
+                  <!-- <div class="file-field col s12 input-field">
+                     <div class="btn btn-select">
+>>>>>>> submain
                         <span>File</span>
                         <input type="file">
                         </div>
@@ -52,6 +73,7 @@
                     </button>
             </div>
             </form>
+<<<<<<< HEAD
             </div>
             <a id="create-profile" class="waves-effect waves-light btn modal-trigger" href="#modal1">Create a baby
                 profile</a>
@@ -64,3 +86,13 @@
             
             
         
+=======
+         </div>
+         <a id="create-profile" class="waves-effect waves-light btn modal-trigger" href="#modal1">Create a baby
+            profile</a>
+         <div class="modal-footer">
+            <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
+         </div>
+      </div>
+      <script src="js/modal.js"></script>
+>>>>>>> submain
