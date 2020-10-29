@@ -14,6 +14,9 @@ module.exports = {
       birthdate: {
         type: Sequelize.DATE
       },
+      img: {
+        type: Sequelize.STRING
+      },
       userId: {
         type: Sequelize.INTEGER
       },

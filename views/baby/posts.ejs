@@ -1,2 +1,10 @@
 <h5>This is a show page for individual baby posts</h5>
 <h1> This is post titled <%= post.title%>!</h1>
+
+<div class="container">
+   <div class="profile-card">
+   
+   <h5><%= baby.name %>'s profile </h5>
+   <h5> Born on <%= baby.birthdate.toDateString().substring(0,15) %></h5>
+   
+</div>

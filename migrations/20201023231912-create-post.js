@@ -9,10 +9,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       height: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       weight: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       img: {
         type: Sequelize.STRING
