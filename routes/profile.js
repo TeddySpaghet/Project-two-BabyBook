@@ -71,22 +71,26 @@ router.get('/:name', (req, res) => {
 })
 
 router.post('/:name', (req, res) => {
-    db.post.create({
+    console.log(req.body)
+    db.post.create(req.body)
+        // {
 
-        height: req.body.height,
-        weight: req.body.weight,
-        //img: req.body.img,
-        title: req.body.title,
-        firsts: req.body.firsts,
-        favorites: req.body.favorites,
-        babyId: req.body.babyId,
-    })
+        // height: req.body.height,
+        // weight: req.body.weight,
+        // //img: req.body.img,
+        // title: req.body.title,
+        // firsts: req.body.firsts,
+        // favorites: req.body.favorites,
+        // babyId: req.body.babyId,
+    // })
     .then((post) => {
         console.log("post created!!!! NICE line 85")
     res.redirect('/profile/' + req.params.name)
     })
     .catch((error) => {
-        req.flash('error', error.message);
+        console.log('error at line 91:',error)
+        res.sendStatus(500)
+        // req.flash('error', error.message);
     })
 })
 
