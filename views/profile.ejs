@@ -3,15 +3,29 @@
 </div>
 
 
-
-
-<div class="container-flex">
-   <% babies.forEach(function(baby) {  %>
-   <div class="row">
-      <div class="col s12 m7">
-         <div class="card small">
-            <div class="card-image">
-               <img src="images/01month.jpg<%#= baby.image%>">
+    <div class="container-flex">
+        <% babies.forEach(function(baby) {  %>
+        <div class="row">
+            <div class="col s12 m7">
+            <div class="card small">
+                <div class="card-image">
+                    <img src="images/01month.jpg<%#= baby.image%>">
+                </div>
+                <div class="card-content">
+                    <a href="/profile/<%= baby.name %>"><%= baby.name %></a>
+                </div>
+                <div class="card-action">
+                    <a href="/profile/<%= baby.name %>/edit" class="btn btn-primary a-btn-slide-text">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        <span><strong>Edit</strong></span>
+                    </a>
+                    <form action="/profile/<%=baby.name%>?_method=DELETE" method="POST" class="buttons">
+                        <button class="btn btn-primary a-btn-slide-text" type='submit'>
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            <span><strong>Delete</strong></span>
+                        </button>
+                    </form>
+                </div>
             </div>
             <div class="card-content">
                <a href="/profile/<%= baby.name %>" class="text-teal"><%= baby.name %></a>

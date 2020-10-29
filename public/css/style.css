@@ -73,6 +73,10 @@ hr {
   background-color: tomato;
   background-color:#2B8CAB;
 }
+.btn {
+  min-width: 80px;
+}
+
 .btn-select{
   background-color: slategrey;
 }
@@ -137,3 +141,7 @@ a.btn {
   -moz-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
 } */
+
+.buttons{
+  display:inline-block;
+}
