@@ -70,7 +70,7 @@ router.get('/:name', (req, res) => {
 
 })
 
-// EDIT Route
+// EDIT baby Route
 router.get('/edit/:name', (req, res) => {
     db.baby.findOne({
         where: {
@@ -84,7 +84,29 @@ router.get('/edit/:name', (req, res) => {
         })
 })
 
-// DELETE Route
+// EDIT post Route
+router.get(':name/edit/:id', (req, res) => {
+    db.baby.findOne({
+        where: {
+            name: req.params.name
+        }
+    }).then((baby) => {
+        db.post.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then((post) => {
+            res.render('posts/edit', {post, baby})
+        }).catch((error) => {
+                res.render('partials/alerts')
+        })
+    })
+    .catch((error) => {
+        res.render('partials/alerts')
+    })
+})
+
+// DELETE baby Route
 router.delete('/:name', (req, res) => {
     models.post.destroy({
         where: {
@@ -104,7 +126,7 @@ router.post('/:name', (req, res) => {
 
         height: req.body.height,
         weight: req.body.weight,
-        //img: req.body.img,
+        img: req.body.img,
         title: req.body.title,
         firsts: req.body.firsts,
         favorites: req.body.favorites,
@@ -123,16 +145,18 @@ router.get('/:name/:id', (req, res) => {
     db.baby.findOne({
         where: { name: req.params.name, userId: req.user.id, }
     })
-        .then((baby) => {
-            //console.log("this is the post id: " , posts.id);
-            console.log("this is the baby id at line 98: ", baby.id)
-            //console.log("this is the post id: " , posts.id);
-            if (!baby) throw Error()
-            db.post.findOne({
-                where: {
-                    babyId: baby.id,
-                    id: req.params.id,
-                }
+    .then((baby) => {
+        console.log("this is the baby id at line 98: " , baby.id)
+        if (!baby) throw Error()
+        db.post.findOne({
+            where: { 
+                babyId: baby.id,
+                id: req.params.id,
+            }
+        })
+        
+            .then((post) => {
+                res.render('baby/posts', { post: post, baby: baby })
             })
 
                 .then((post) => {

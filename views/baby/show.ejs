@@ -1,77 +1,4 @@
 <div class="container">
-   <div class="profile-card">
-
-      <h5><%= baby.name %>'s profile </h5>
-      <h5> Born on <%= baby.birthdate.toDateString().substring(0,15) %></h5>
-
-   </div>
-
-   <div class="container-flex">
-
-      <% for(i=0; i<3; i++){ %>
-      <!-- uncomment the line below once 'post' route has been created -->
-      <!-- <% //posts.forEach(function(post) {  %> -->
-      <div class="row">
-         <div class="col s12 m7">
-            <div class="card small">
-               <div class="card-image">
-                  <img src="../images/01month.jpg">
-               </div>
-               <div class="card-content">
-                  <a href="/profile/<%= baby.name %><%= //post.title %>"> <%= baby.name %>, month <%= i+1 %></a>
-               </div>
-               <div class="card-action">
-                  <a href="/profile/edit/<%= baby.name %>" class="btn btn-primary a-btn-slide-text">
-                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                     <span><strong>Edit</strong></span>
-                  </a>
-                  <a href="/profile" class="btn btn-primary a-btn-slide-text" method="DELETE" onclick="if (!confirm('Are you sure?')) { return false }">
-                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                     <span><strong>Delete</strong></span>
-                  </a>
-                  <!-- uncomment the line below once 'post' route has been created -->
-                  <!-- <a href="/profile/<%= //baby.name %>/<%= //post.title %>"> <%= //post.title %> </a> -->
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- edit button, delete button -->
-      <!-- add a closing paren around curly bracket once 'post' route has been created -->
-      <% }  %>
-
-
-      <div class="card small" style="align-items:center;">
-         <div id="modal1" class="modal">
-            <div class="modal-content">
-               <form class="col s12 m7" method="POST" action="/profile/<%= //post.title %> <%= //post.title %>">
-                  <!-- uncomment the line below once 'post' route has been created -->
-                  <!-- <form class="col s12 m7" method="POST" action="/profile/<%= //post.title %> <%= //post.title %>"> -->
-                  <br>
-                  <div class="input-field col s12">
-                     <label for="title">New Post Title </label>
-                     <input id="new_post" type="text" class="validate" name="title">
-                  </div>
-                  <div class="input-field col s12">
-                     <input type="hidden" name="babyId" value=<%= baby.id %> />
-                     <label for="weight">Your Baby's Weight:</label>
-                     <input id="baby_weight" type="text" class="validate" name="weight">
-                  </div>
-                  <div class="input-field col s12">
-                     <label for="height">Your Baby's Height:</label>
-                     <input id="baby_height" type="text" class="validate" name="height">
-                  </div>
-                  <div class="input-field col s12">
-                     <label for="favorites">Your Baby's Favorites:</label>
-                     <input id="baby_favorites" type="text" class="validate" name="favorites">
-                  </div>
-                  <div class="input-field col s12">
-                     <label for="firsts">Your Baby's Firsts:</label>
-                     <input id="baby_firsts" type="text" class="validate" name="firsts">
-                  </div>
-
-
-                  <!-- once we get the image upload functioning, this allows us to select a file to upload -->
-                  <!-- <div class="file-field col s12 input-field">
     <div class="profile-card">
     
     <h5><%= baby.name %>'s profile </h5>
@@ -85,10 +12,20 @@
                 <div class="col s12 m7">
                     <div class="card small">
                         <div class="card-image">
-                            <img src="../images/01month.jpg">
+                            <img src="<%=post.img%>">
+                        </div>
+                        <div class="card-content">
+                            <a href="/profile/<%= baby.name %>/<%= post.id %>"> <%= post.title %></a>
                         </div>
                         <div class="card-action">
-                            <a href="/profile/<%= baby.name %>/<%= post.id %>"> <%= post.title %></a>
+                            <a href="/profile/<%= baby.name %>/edit/<%=post.id%>" class="btn btn-primary a-btn-slide-text">
+                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                <span><strong>Edit</strong></span>
+                            </a>
+                            <a href="/profile" class="btn btn-primary a-btn-slide-text" method="DELETE" onclick="if (!confirm('Are you sure?')) { return false }">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                <span><strong>Delete</strong></span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -120,6 +57,10 @@
                         <div class="input-field col s12">
                             <label for="firsts">Your Baby's Firsts:</label>
                             <input id="baby_firsts" type="text" class="validate" name="firsts">
+                        </div>
+                        <div class="input-field col s12">
+                            <label for="img">Post image url:</label>
+                            <input id="baby_post_img" type="text" class="validate" name="img">
                         </div>
                     
 
