@@ -8,7 +8,7 @@
             <div class="col s12 m7">
             <div class="card small">
                 <div class="card-image">
-                    <img src="images/01month.jpg">
+                    <img src="images/01month.jpg<%#= baby.image%>">
                 </div>
                 <div class="card-action">
                     <a href="/profile/<%= baby.name %>"><%= baby.name %></a>
@@ -28,11 +28,15 @@
                     <label for="name">Your Baby's Name</label>
                     <input id="baby_name" type="text" class="validate" name="name">
                     </div>
+                    <!-- <div class="input-field col s12">
+                        <label for="image">Your Baby's profile picture</label>
+                        <input id="baby_image" type="text" class="validate" name="image">
+                        </div> -->
                     <div class="input-field col s12">
-                    <input id="baby_birthdate" type="date" class="validate" name="birthdate">
-                    <label for="birthdate">Your Baby's Birthdate</label>
-                    <input type="hidden" name="userId" value=<%= currentUser.id %> />
-            </div>
+                        <input id="baby_birthdate" type="date" class="validate" name="birthdate">
+                        <label for="birthdate">Your Baby's Birthdate</label>
+                        <input type="hidden" name="userId" value=<%= currentUser.id %> />
+                    </div>
                 <!-- once we get the image upload functioning, this allows us to select a file to upload -->
                 <!-- <div class="file-field col s12 input-field">
                     <div class="btn btn-select">

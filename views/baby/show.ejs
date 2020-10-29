@@ -12,7 +12,7 @@
                 <div class="col s12 m7">
                     <div class="card small">
                         <div class="card-image">
-                            <img src="../images/01month.jpg">
+                            <img src="<%=post.img%>">
                         </div>
                         <div class="card-action">
                             <a href="/profile/<%= baby.name %>/<%= post.id %>"> <%= post.title %></a>
@@ -47,6 +47,10 @@
                         <div class="input-field col s12">
                             <label for="firsts">Your Baby's Firsts:</label>
                             <input id="baby_firsts" type="text" class="validate" name="firsts">
+                        </div>
+                        <div class="input-field col s12">
+                            <label for="img">Post image url:</label>
+                            <input id="baby_post_img" type="text" class="validate" name="img">
                         </div>
                     
 

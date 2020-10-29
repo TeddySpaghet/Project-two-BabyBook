@@ -26,9 +26,11 @@ router.post('/', (req, res) => {
     db.baby.create({
     name: req.body.name,
     birthdate: req.body.birthdate,
-    userId: req.user.id,    
+    userId: req.user.id,   
+    //image: req.body.image, 
     })
     .then((baby) => {
+        //console.log(baby.image)
         if (!baby) throw Error()
     res.redirect('/profile')
     })
@@ -75,7 +77,7 @@ router.post('/:name', (req, res) => {
 
         height: req.body.height,
         weight: req.body.weight,
-        //img: req.body.img,
+        img: req.body.img,
         title: req.body.title,
         firsts: req.body.firsts,
         favorites: req.body.favorites,
@@ -95,9 +97,7 @@ db.baby.findOne({
         where: { name: req.params.name, userId: req.user.id, }
     })
     .then((baby) => {
-        //console.log("this is the post id: " , posts.id);
         console.log("this is the baby id at line 98: " , baby.id)
-        //console.log("this is the post id: " , posts.id);
         if (!baby) throw Error()
         db.post.findOne({
             where: { 
@@ -107,8 +107,6 @@ db.baby.findOne({
         })
         
             .then((post) => {
-                console.log("here are the " + post + "at line 107");
-                //console.log(typeof(posts));
                 res.render('baby/posts', { post: post, baby: baby })
             })
             .catch((error) => {
