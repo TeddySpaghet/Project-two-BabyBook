@@ -71,7 +71,6 @@ router.get('/:name', (req, res) => {
 })
 
 router.get('/edit/:name', (req, res) => {
-    console.log(req.params)
     db.baby.findOne({
         where: {
             name: req.params.name
@@ -91,7 +90,7 @@ router.delete('/:name', (req, res) => {
             id: req.params.name
         }
     }).then((post) => {
-        res.redirect('/profile' + req.params.name)
+        res.redirect('/profile', {baby})
     })
         .catch((error) => {
             req.flash('error', error.message);
