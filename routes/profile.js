@@ -70,6 +70,7 @@ router.get('/:name', (req, res) => {
 
 })
 
+// EDIT Route
 router.get('/edit/:name', (req, res) => {
     db.baby.findOne({
         where: {
@@ -83,7 +84,7 @@ router.get('/edit/:name', (req, res) => {
         })
 })
 
-
+// DELETE Route
 router.delete('/:name', (req, res) => {
     models.post.destroy({
         where: {
