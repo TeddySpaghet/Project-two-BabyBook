@@ -1,5 +1,6 @@
 *{
   box-sizing: border-box;
+  text-transform: uppercase;
 }
 body{
   margin: 0 auto;
@@ -10,8 +11,17 @@ nav ul li {
   display: inline-block;
   margin-right: .3em;
 }
+h4{
+  text-transform: uppercase;
+}
 h5{
   text-transform: uppercase;
+}
+hr { 
+  color: gray; 
+  border-style:inset; 
+  border-width: 1px;
+  margin: 0.5em auto; 
 }
 .card{
   width: 250px;
@@ -19,23 +29,37 @@ h5{
   text-align: center;
   border-radius: 20px;
 }
-
+.new{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+}
+.login-form {
+  height: 50%;
+  width: 50%;
+  text-align: center;
+  
+  margin-top: 25px;
+}
 
 .card-image{
   border-radius: 20px 20px 0px 0px;
-  /* height:180px;
-  width: 250px; */
+
 }
 .card-action{
   border-radius: 20px;
 }  
 .profile-card{
   width: 80%;
-  background-color: snow;
-  border-radius: 50px;
+  background-color: rgb(255, 255, 255); 
+  border-radius: 35px;
   text-align: center;
+  padding: 20px;
 }
 .container{
+  display: flex;
+  justify-content: center;
   text-align: center;
   padding:30px;
 }
@@ -57,7 +81,50 @@ h5{
   flex-direction: row;
   justify-content: center;
 }
-a.btn:hover {
+.card .card-action:last-child {
+  border-radius: 0 0 20px 20px;
+}
+.post-content{
+  padding: 30px;
+  padding-top: 0px;
+  text-align: left;
+}
+
+#baby-block{
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: left;
+  align-content: center;
+  width: 85%;
+}
+#baby-text{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: left;
+  align-content: center; */
+  width: 85%;
+}
+#baby-image{
+  width: 300px;
+  height: 300px;
+  border-radius: 30px;
+}
+
+
+
+#post-block{
+  display: flex;
+  justify-content: left;
+  align-content: center;
+}
+
+#logo{
+  margin-bottom:-35px;
+  margin-right: -10px;
+  margin-top: -20px;
+  height: 90px;
+}
+/* a.btn:hover {
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -o-transform: scale(1.1);
@@ -69,4 +136,4 @@ a.btn {
   -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
-}
+} */
