@@ -7,7 +7,8 @@ const flash = require('connect-flash');
 const isLoggedIn = require('./middleware/isLoggedIn');
 // const multer = require('multer')
 const path = require('path');
-const AWS = require ('aws-sdk')
+const AWS = require ('aws-sdk');
+const methodOverride = require('method-override');
 
 const { runInNewContext } = require('vm');
 
@@ -80,6 +81,7 @@ app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   next();
 });
+app.use(methodOverride('_method'));
 
 
 

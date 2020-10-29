@@ -15,17 +15,19 @@
                             <img src="<%=post.img%>">
                         </div>
                         <div class="card-content">
-                            <a href="/profile/<%= baby.name %>/<%= post.id %>"> <%= post.title %></a>
+                            <a href="/profile/<%= baby.name %>/posts/<%= post.id %>"> <%= post.title %></a>
                         </div>
                         <div class="card-action">
-                            <a href="/profile/<%= baby.name %>/edit/<%=post.id%>" class="btn btn-primary a-btn-slide-text">
+                            <a href="/profile/<%= baby.name %>/<%= post.id %>/edit" class="btn btn-primary a-btn-slide-text">
                                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                 <span><strong>Edit</strong></span>
                             </a>
-                            <a href="/profile" class="btn btn-primary a-btn-slide-text" method="DELETE" onclick="if (!confirm('Are you sure?')) { return false }">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                <span><strong>Delete</strong></span>
-                            </a>
+                            <form action="/profile/<%=baby.name%>/<%=post.id%>?_method=DELETE" method="POST" class="buttons">
+                                <button class="btn btn-primary a-btn-slide-text" type='submit'>
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                    <span><strong>Delete</strong></span>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

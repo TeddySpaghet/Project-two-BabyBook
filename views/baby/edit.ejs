@@ -1,5 +1,5 @@
 <h1>Edit <%= baby.name %>'s profile </h1>
-<form class="col s12 m7" method="UPDATE" action="/profile">
+<form class="col s12 m7" method="POST" action="/profile/<%=baby.name%>?_method=PUT">
     <br>
 
     <div class="input-field col s12">

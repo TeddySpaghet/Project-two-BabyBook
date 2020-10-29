@@ -47,6 +47,10 @@ h5{
   background-color: tomato;
   background-color:#2B8CAB;
 }
+.btn {
+  min-width: 80px;
+}
+
 .btn-select{
   background-color: slategrey;
 }
@@ -55,16 +59,7 @@ h5{
   flex-direction: row;
   justify-content: center;
 }
-a.btn:hover {
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -o-transform: scale(1.1);
-}
-a.btn {
-  -webkit-transform: scale(0.8);
-  -moz-transform: scale(0.8);
-  -o-transform: scale(0.8);
-  -webkit-transition-duration: 0.5s;
-  -moz-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
+
+.buttons{
+  display:inline-block;
 }
