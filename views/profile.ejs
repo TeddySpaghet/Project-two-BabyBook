@@ -10,13 +10,25 @@
                 <div class="card-image">
                     <img src="images/01month.jpg<%#= baby.image%>">
                 </div>
-                <div class="card-action">
+                <div class="card-content">
                     <a href="/profile/<%= baby.name %>"><%= baby.name %></a>
+                </div>
+                <div class="card-action">
+                    <a href="/profile/edit/<%= baby.name %>" class="btn btn-primary a-btn-slide-text">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        <span><strong>Edit</strong></span>
+                    </a>
+                    <a href="/profile" class="btn btn-primary a-btn-slide-text" method="DELETE" onclick="if (!confirm('Are you sure?')) { return false }">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        <span><strong>Delete</strong></span>
+                    </a>
                 </div>
             </div>
             </div>
         </div>
         <% } ) %>
+
+                        
 
     <div class="card small" style="align-items:center;">
         <div id="modal1" class="modal">
