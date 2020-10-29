@@ -1,2 +1,16 @@
-<h5>This is a show page for individual baby posts</h5>
-<h1> This is post titled <%= post.title%>!</h1>
+
+<div class="container">
+   <div class="profile-card"id=post-block>
+      
+      <img src="../../images/03month.jpg"id="post-image">
+      <!-- <img src="<%= //post.img%>" id="post-image"> -->
+      <h4><%= baby.name %> - <%= post.title%></h4>
+      <hr>
+      <div class="post-content">
+         <h5>Weight: <%= post.weight%></h5>
+         <h5>Height: <%= post.height%></h5>
+         <h5><%= baby.name %>'s favorites: <%= post.favorites%></h5>
+         <h5><%= baby.name %>'s firsts: <%= post.firsts%></h5>
+      </div>   
+   </div>
+</div>

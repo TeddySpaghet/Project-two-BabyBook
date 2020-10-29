@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   post.init({
-    height: DataTypes.INTEGER,
-    weight: DataTypes.INTEGER,
+    height: DataTypes.STRING,
+    weight: DataTypes.STRING,
     img: DataTypes.STRING,
     title: {
       type:  DataTypes.STRING,

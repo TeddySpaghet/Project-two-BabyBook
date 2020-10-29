@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
   baby.init({
     name: DataTypes.STRING,
     birthdate: DataTypes.DATE,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    img: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'baby',

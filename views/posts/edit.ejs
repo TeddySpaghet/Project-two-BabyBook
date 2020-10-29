@@ -1,6 +1,7 @@
-<h1>Edit your baby's post here!</h1>
+<div class="container">
+<h5>Edit <%= post.name %> post here</h5>
 
-<form class="col s12 m7" method="POST" action="/profile/<%= baby.name %>/<%= post.id %>?_method=PUT">
+<form class="col s12 m7 login-form" method="POST" action="/profile/<%= baby.name %>/<%= post.id %>?_method=PUT">
     <br>
     <div class="input-field col s12">
         <label for="title">New Post Title </label>
@@ -29,8 +30,8 @@
     </div>
 
 
-<!-- once we get the image upload functioning, this allows us to select a file to upload -->
-<!-- <div class="file-field col s12 input-field">
+    <!-- once we get the image upload functioning, this allows us to select a file to upload -->
+    <!-- <div class="file-field col s12 input-field">
     <div class="btn btn-select">
         <span>File</span>
         <input type="file">
@@ -43,5 +44,6 @@
     <button class="btn waves-effect waves-light" type="submit" name="action">Submit
         <i class="material-icons right"></i>
     </button>
-</div>
+    </div>
 </form>
+</div>
