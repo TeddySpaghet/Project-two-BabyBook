@@ -3,17 +3,17 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 const db = require('../models')
 const router = express.Router();
 
-router.get('/', isLoggedIn,(req, res) => {
+router.get('/', isLoggedIn, (req, res) => {
     console.log("this is the profile ROUTE")
     db.baby.findAll({
-        where: { 
-            userId: req.user.id 
+        where: {
+            userId: req.user.id
         }
     })
-    
+
         .then((babies) => {
             console.log("here are the " + babies);
-            console.log(typeof(babies));
+            console.log(typeof (babies));
             res.render('profile', { babies: babies })
         })
         .catch((error) => {
@@ -24,16 +24,18 @@ router.get('/', isLoggedIn,(req, res) => {
 
 router.post('/', (req, res) => {
     db.baby.create({
-    name: req.body.name,
-    birthdate: req.body.birthdate,
-    userId: req.user.id,    
+        name: req.body.name,
+        birthdate: req.body.birthdate,
+        userId: req.user.id,
+        userId: req.user.id,
+        userId: req.user.id,
     })
-    .then((baby) => {
-    res.redirect('/profile')
-    })
-    .catch((error) => {
-    res.status(400).render('partials/alerts')
-    })
+        .then((baby) => {
+            res.redirect('/profile')
+        })
+        .catch((error) => {
+            res.status(400).render('partials/alerts')
+        })
         .then((baby) => {
             res.redirect('/profile')
         })
@@ -56,6 +58,26 @@ router.get('/:name', (req, res) => {
         })
 })
 
+router.get('edit/:name', (req, res) => {
+    db.baby.findById(req.params.id)
+    res.render('baby/show', { baby: baby })
+        .catch((error) => {
+            res.redirect('partials/alerts')
+        })
+})
 
 
+
+router.delete('/:name', (req, res) => {
+    models.post.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then((post) => {
+        res.redirect('/profile/' + req.params.name)
+    })
+        .catch((error) => {
+            req.flash('error', error.message);
+        })
+    });
 module.exports = router;
