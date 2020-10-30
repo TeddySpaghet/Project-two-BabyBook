@@ -69,6 +69,10 @@ hr {
   flex-wrap: wrap;
   flex-direction: row;
 }
+.baby-post-list{
+  display: flex;
+  justify-content: center;
+}
 .nav{
   background-color: tomato;
   background-color:#2B8CAB;
@@ -114,7 +118,10 @@ hr {
   border-radius: 30px;
 }
 
-
+#post-image{
+  max-width: 250px;
+  max-height: auto;
+}
 
 #post-block{
   display: flex;
@@ -141,7 +148,10 @@ a.btn {
   -moz-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
 } */
-
+.profile-section{
+  display: flex;
+  justify-content: center;
+}
 .buttons{
   display:inline-block;
 }
