@@ -74,6 +74,11 @@ hr {
 }
 .btn {
   min-width: 80px;
+  background-color:#2B8CAB;
+}
+.btn:hover{
+  background-color:#2B8CAB;
+  filter: brightness(130%);
 }
 
 .btn-select{
