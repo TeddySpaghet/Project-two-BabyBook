@@ -146,10 +146,16 @@ a.btn {
 .profile-section{
   display: flex;
   justify-content: center;
+  margin-top: 25px;
 }
 .card-section{
   margin: 20px 5px 0px 5px;
 }
 .buttons{
   display:inline-block;
+}
+
+.row{
+  margin-left: 0px;
+  margin-right: 0px;
 }
