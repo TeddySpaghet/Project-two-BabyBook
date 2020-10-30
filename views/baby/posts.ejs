@@ -1,14 +1,21 @@
 
 <div class="container">
    <div class="profile-card"id=post-block>
-      <img src="<%=post.img%>"id="post-image">
-      <h4><%= baby.name %> - <%= post.title%></h4>
-      <hr>
+      <div class="post-img-title">   
+         <img src="<%=post.img%>"id="post-image">
+         <h4><%= baby.name %></h4>         
+         <h5><%= post.title%></h5>
+      </div>
       <div class="post-content">
-         <h5>Weight: <%= post.weight%></h5>
-         <h5>Height: <%= post.height%></h5>
-         <h5><%= baby.name %>'s favorites: <%= post.favorites%></h5>
-         <h5><%= baby.name %>'s firsts: <%= post.firsts%></h5>
+         <p>Weight: <%= post.weight%></p>
+            <hr>
+         <p>Height: <%= post.height%></p>
+            <hr>
+         <p><%= baby.name %>'s favorites: <%= post.favorites%></p>
+            <hr>
+         <p><%= baby.name %>'s firsts: <%= post.firsts%></p>
+            <hr>
+         <a id="back-to-baby" class="waves-effect waves-light btn modal-trigger" href="/profile/<%=baby.name%>">Back to Baby profile</a>
       </div>   
    </div>
 </div>
