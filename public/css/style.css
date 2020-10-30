@@ -63,11 +63,10 @@ hr {
   text-align: center;
   padding:30px;
 }
-.container-flex{
-  margin-top: 50px;
+
+.baby-post-list{
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  justify-content: center;
 }
 .nav{
   background-color: tomato;
@@ -114,7 +113,10 @@ hr {
   border-radius: 30px;
 }
 
-
+#post-image{
+  max-width: 250px;
+  max-height: auto;
+}
 
 #post-block{
   display: flex;
@@ -141,7 +143,13 @@ a.btn {
   -moz-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
 } */
-
+.profile-section{
+  display: flex;
+  justify-content: center;
+}
+.card-section{
+  margin: 20px 5px 0px 5px;
+}
 .buttons{
   display:inline-block;
 }
