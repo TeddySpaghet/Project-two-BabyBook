@@ -63,12 +63,7 @@ hr {
   text-align: center;
   padding:30px;
 }
-.container-flex{
-  margin-top: 50px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
+
 .baby-post-list{
   display: flex;
   justify-content: center;
@@ -151,6 +146,9 @@ a.btn {
 .profile-section{
   display: flex;
   justify-content: center;
+}
+.card-section{
+  margin: 20px 5px 0px 5px;
 }
 .buttons{
   display:inline-block;
