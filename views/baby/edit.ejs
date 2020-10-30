@@ -1,0 +1,36 @@
+<section class="profile-section">   
+    <div class="profile-card">
+        <h4> Edit <%= baby.name %>'s profile </h4>
+    </div>
+</section>
+<section class="profile-section">
+    <form class="col login-form" method="POST" action="/profile/<%=baby.name%>?_method=PUT">
+        <br>
+        <div class="input-field col">
+            <label for="name">Your Baby's Name</label>
+            <input id="baby_name" type="text" class="validate" name="name">
+        </div>
+        <div class="input-field col">
+            <label for="img">Your Baby's profile picture</label>
+            <input id="baby_image" type="text" class="validate" name="img">
+        </div>
+        <div class="input-field col">
+            <input id="baby_birthdate" type="date" class="validate" name="birthdate">
+            <label for="birthdate">Your Baby's Birthdate</label>
+            <input type="hidden" name="userId" value=<%= currentUser.id %> />
+        </div>
+    <!-- once we get the image upload functioning, this allows us to select a file to upload -->
+    <!-- <div class="file-field col s12 input-field">
+            <div class="btn btn-select">
+                <span>File</span>
+                <input type="file">
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+            </div>
+            </div> -->
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit<i
+                class="material-icons right"></i>
+        </button>
+    </form>
+</section>

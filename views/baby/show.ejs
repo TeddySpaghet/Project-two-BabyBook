@@ -1,0 +1,94 @@
+<div class="container">
+    <div class="profile-card" id="baby-block">
+        <img src="<%=baby.img%>" class="baby-image" id="baby-image">
+        <div id="baby-text">
+            <h4><%= baby.name %>'s profile </h4>
+            <br>
+            <hr>
+            <h5> Born on <%= baby.birthdate.toDateString().substring(0,15) %></h5>
+        </div>
+    </div>
+</div>
+
+<section class="profile-section card-section">
+    <% posts.forEach(function(post) {  %>
+        <div class="row">
+            <div class="col s12 m7">
+                <div class="card small">
+                    <div class="card-image">
+                        <img src="<%=post.img%>">
+                    </div>
+                    <div class="card-content">
+                        <a href="/profile/<%= baby.name %>/posts/<%= post.id %>"> <%= post.title %></a>
+                    </div>
+                    <div class="card-action">
+                        <a href="/profile/<%= baby.name %>/<%= post.id %>/edit" class="btn btn-primary a-btn-slide-text">
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                            <span><strong>Edit</strong></span>
+                        </a>
+                        <form action="/profile/<%=baby.name%>/<%=post.id%>?_method=DELETE" method="POST" class="buttons">
+                            <button class="btn btn-primary a-btn-slide-text" type='submit'>
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                <span><strong>Delete</strong></span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+</section>
+
+<section class="profile-section new-card">
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <form class="col s12 m7" method="POST" action="/profile/<%= baby.name %>">
+            <br>
+            <div class="input-field col">
+                <label for="title">New Post Title</label>
+                <input id="new_post" type="text" class="validate" name="title">
+            </div>
+            <div class="input-field col">
+                <input type="hidden" name="babyId" value=<%= baby.id %> />
+                <label for="weight">Your Baby's Weight:</label>
+                <input id="baby_weight" type="text" class="validate" name="weight">
+            </div>
+            <div class="input-field col">
+                <label for="height">Your Baby's Height:</label>
+                <input id="baby_height" type="text" class="validate" name="height">
+            </div>
+            <div class="input-field col">
+                <label for="favorites">Your Baby's Favorites:</label>
+                <input id="baby_favorites" type="text" class="validate" name="favorites">
+            </div>
+            <div class="input-field col">
+                <label for="firsts">Your Baby's Firsts:</label>
+                <input id="baby_firsts" type="text" class="validate" name="firsts">
+            </div>
+            <div class="input-field col">
+                <label for="img">Post image url:</label>
+                <input id="baby_post_img" type="text" class="validate" name="img">
+            </div>
+            <!-- once we get the image upload functioning, this allows us to select a file to upload -->
+            <!-- <div class="file-field col s12 input-field">
+                    <div class="btn btn-select">
+                        <span>File</span>
+                        <input type="file">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div> -->
+            <button class="btn waves-effect waves-light" type="submit">Submit
+            </button>
+            </form>
+        </div>
+    </div>
+    <div class="card small new">
+        <a id="create-profile" class="waves-effect waves-light btn modal-trigger" href="#modal1">Create a new post</a>
+    </div>
+</section>
+
+
+
+<script src="../js/modal.js"></script>

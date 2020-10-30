@@ -1,0 +1,52 @@
+<section class="profile-section">   
+    <div class="profile-card">
+        <h4> Edit <%= post.title %>'s post </h4>
+    </div>
+</section>
+<section class="profile-section">
+    <form class="col login-form" method="POST" action="/profile/<%= baby.name %>/<%= post.id %>?_method=PUT">
+        <br>
+        <div class="input-field col">
+            <label for="title">New Post Title </label>
+            <input id="new_post" type="text" class="validate" name="title">
+        </div>
+        <div class="input-field col">
+            <input type="hidden" name="babyId" value=<%= baby.id %> />
+            <label for="weight">Your Baby's Weight:</label>
+            <input id="baby_weight" type="text" class="validate" name="weight">
+        </div>
+        <div class="input-field col">
+            <label for="height">Your Baby's Height:</label>
+            <input id="baby_height" type="text" class="validate" name="height">
+        </div>
+        <div class="input-field col">
+            <label for="favorites">Your Baby's Favorites:</label>
+            <input id="baby_favorites" type="text" class="validate" name="favorites">
+        </div>
+        <div class="input-field col">
+            <label for="firsts">Your Baby's Firsts:</label>
+            <input id="baby_firsts" type="text" class="validate" name="firsts">
+        </div>
+        <div class="input-field col">
+            <label for="img">Post image url:</label>
+            <input id="baby_post_img" type="text" class="validate" name="img">
+        </div>
+
+
+        <!-- once we get the image upload functioning, this allows us to select a file to upload -->
+        <!-- <div class="file-field col input-field">
+        <div class="btn btn-select">
+            <span>File</span>
+            <input type="file">
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+        </div>
+    </div> -->
+
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right"></i>
+        </button>
+        </div>
+    </form>
+</section>

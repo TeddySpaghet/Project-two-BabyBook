@@ -1,0 +1,21 @@
+
+<div class="container">
+   <div class="profile-card"id=post-block>
+      <div class="post-img-title">   
+         <img src="<%=post.img%>"id="post-image">
+         <h4><%= baby.name %></h4>         
+         <h5><%= post.title%></h5>
+      </div>
+      <div class="post-content">
+         <p>Weight: <%= post.weight%></p>
+            <hr>
+         <p>Height: <%= post.height%></p>
+            <hr>
+         <p><%= baby.name %>'s favorites: <%= post.favorites%></p>
+            <hr>
+         <p><%= baby.name %>'s firsts: <%= post.firsts%></p>
+            <hr>
+         <a id="back-to-baby" class="waves-effect waves-light btn modal-trigger" href="/profile/<%=baby.name%>">Back to Baby profile</a>
+      </div>   
+   </div>
+</div>
