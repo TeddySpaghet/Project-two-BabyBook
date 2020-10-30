@@ -3,6 +3,7 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 const db = require('../models')
 const router = express.Router();
 
+
 //profile page get route
 
 router.get('/', isLoggedIn, (req, res) => {
@@ -28,6 +29,7 @@ router.post('/', (req, res) => {
         name: req.body.name,
         birthdate: req.body.birthdate,
         userId: req.user.id,
+        img: req.body.img,
     }).then((baby) => {
             if (!baby) throw Error()
             res.redirect('/profile')
@@ -36,8 +38,7 @@ router.post('/', (req, res) => {
     })
 })
 
-
-
+// GET route to baby's profile page
 
 router.get('/:name', (req, res) => {
     db.baby.findOne({
@@ -71,6 +72,26 @@ router.get('/:name/edit', (req, res) => {
     })
 })
 
+router.put('/:name', (req, res) => {
+    db.baby.findOne({
+        where: {
+            name: req.params.name
+        }
+    }).then((baby) => {
+        baby.name = req.body.name;
+        baby.birthdate = req.body.birthdate;
+        baby.userId = req.body.userId;
+        baby.img = req.body.img;
+        baby.save().then((baby) => {
+            res.redirect('/profile')
+        }).catch((error) =>{
+            console.log(error);
+        })       
+    }).catch((error) => {
+        res.render('partials/alerts')
+    })
+})
+
 // DELETE baby Route
 router.delete('/:name', (req, res) => {
     db.baby.destroy({
@@ -84,27 +105,6 @@ router.delete('/:name', (req, res) => {
     })
 });
 
-// GET route to baby's profile page
-
-router.put('/:name', (req, res) => {
-    db.baby.findOne({
-        where: {
-            name: req.params.name
-        }
-    }).then((baby) => {
-        baby.name = req.body.name;
-        baby.birthdate = req.body.birthdate;
-        baby.userId = req.body.userId;
-        baby.save().then((baby) => {
-            res.redirect('/profile')
-        }).catch((error) =>{
-            console.log(error);
-        })       
-    }).catch((error) => {
-        res.render('partials/alerts')
-    })
-})
-
 // POST route to create posts
 
 router.post('/:name', (req, res) => {
@@ -117,10 +117,11 @@ router.post('/:name', (req, res) => {
         favorites: req.body.favorites,
         babyId: req.body.babyId,
     }).then((post) => {
-        console.log("post created!!!! NICE line 85")
-        res.redirect('/profile/' + req.params.name)
+        console.log("post created!!!! NICE line 85");
+        res.redirect('/profile/' + req.params.name);
     }).catch((error) => {
         req.flash('error', error.message);
+        res.redirect('/profile/' + req.params.name);
     })
 })
 

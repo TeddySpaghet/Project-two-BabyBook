@@ -63,11 +63,10 @@ hr {
   text-align: center;
   padding:30px;
 }
-.container-flex{
-  margin-top: 50px;
+
+.baby-post-list{
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  justify-content: center;
 }
 .nav{
   background-color: tomato;
@@ -75,6 +74,11 @@ hr {
 }
 .btn {
   min-width: 80px;
+  background-color:#2B8CAB;
+}
+.btn:hover{
+  background-color:#2B8CAB;
+  filter: brightness(130%);
 }
 
 .btn-select{
@@ -92,6 +96,8 @@ hr {
   padding: 30px;
   padding-top: 0px;
   text-align: left;
+  width: 500px;
+  max-width: 80%;
 }
 
 #baby-block{
@@ -114,7 +120,11 @@ hr {
   border-radius: 30px;
 }
 
-
+#post-image{
+  width: 300px;
+  height: 300px;
+  border-radius: 30px;
+}
 
 #post-block{
   display: flex;
@@ -127,6 +137,7 @@ hr {
   margin-right: -10px;
   margin-top: -20px;
   height: 90px;
+  min-width: 90px;
 }
 /* a.btn:hover {
   -webkit-transform: scale(1.1);
@@ -141,7 +152,22 @@ a.btn {
   -moz-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
 } */
-
+.profile-section{
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+.card-section{
+  margin: 20px 5px 0px 5px;
+}
 .buttons{
   display:inline-block;
+}
+
+.row{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+#back-to-baby{
+  margin-top: 25px;
 }
