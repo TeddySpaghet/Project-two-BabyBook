@@ -3,14 +3,12 @@ const AWS = require ('aws-sdk')
 const fs = require('fs')
 
 // sets AWS version globally and assigns it to s3 variable
-const ID = 'AKIAIVJ4KWVPKMWKKBUA'
-const SECRET = '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'
 const BUCKET_NAME = "firststeps-assets"
 const s3 = new AWS.S3({
   accessKeyId: ID,
   secretAccessKey: SECRET,
-//   accessKeyId:process.env.AWS_ID,
-//   secretAccessKey: process.env.AWS_SECRET_KEY
+  accessKeyId:process.env.AWS_ID,
+  secretAccessKey: process.env.AWS_SECRET_KEY
 })
 
 const uploadFile = (fileName)=>{

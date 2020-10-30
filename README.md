@@ -1,107 +1,126 @@
-# Express Authentication
+# FIRST STEPS
+### A site to allow parents to track their babies' first experiences. Users log in, make profiles for their baby's, and then add images and record important milestones and events.
 
-Express authentication template using Passport + flash messages + custom middleware
 
-## What it includes
+---
+## Motivation
+#### All of us had a book like this when we were children and we wanted to recreate the experience in a digital format in a way that is private, easy to use, and easy to share with friends and family far away.
 
-* Sequelize user model / migration
-* Settings for PostgreSQL
-* Passport and passport-local for authentication
-* Sessions to keep user logged in between pages
-* Flash messages for errors and successes
-* Passwords that are hashed with BCrypt
-* EJS Templating and EJS Layouts
+---
+## User Stories 
 
-### User Model
+#### Users create an account and logs on, then creates profiles for their children. Once they go to their baby's profile, they can create posts with an image and text to record milestones. Users can edit or delete both baby profiles and individual posts.
 
-| Column Name | Data Type | Notes |
-| --------------- | ------------- | ------------------------------ |
-| id | Integer | Serial Primary Key, Auto-generated |
-| name | String | Must be provided |
-| email | String | Must be unique / used for login |
-| password | String | Stored as a hash |
-| createdAt | Date | Auto-generated |
-| updatedAt | Date | Auto-generated |
 
-### Default Routes
+#### * Entity Relational Diagram:
 
-| Method | Path | Location | Purpose |
-| ------ | ---------------- | -------------- | ------------------- |
-| GET | / | server.js | Home page |
-| GET | /auth/login | auth.js | Login form |
-| GET | /auth/signup | auth.js | Signup form |
-| POST | /auth/login | auth.js | Login user |
-| POST | /auth/signup | auth.js | Creates User |
-| GET | /auth/logout | auth.js | Removes session info |
-| GET | /profile | server.js | Regular User Profile |
+#### ![erd](./planning/erd.png) 
 
-## Steps To Use
+#### * Site mockups:
 
-#### 1. Create a new repo on Github and use your 'express-authentication' as the template
+#### ![wireframe 1](./planning/wire1.png) ![wireframe 2](./planning/wire2.png) ![wireframe 3](./planning/wire3.png)
 
-When we are finished with this boilerplate, we are going to make it a template on Github that will allow us to create a new repo on Github with all this code already loaded in.
-* Go to `github.com` and create a new repository. In the template dropdown, choose this template.
-* Clone your new repo to your local machine
-* Get Codin'!
+#### *  screenshot:
 
-#### 2. Delete any .keep files
+#### ![siteScreenshot 1](./planning/screenshot1.png) ![siteScreenshot 2](./planning/screenshot2.png) ![siteScreenshot 3](./planning/screenshot3.png)![siteScreenshot 4](./planning/screenshot4.png)![siteScreenshot 5](./planning/screenshot5.png)
 
-The `.keep` files are there to maintain the file structure of the auth. If there is a folder that has nothing in it, git won't add it. The dev work around is to add a file to it that has nothing in it, just forces git to keep the folder so we can use it later.
 
-#### 3. Install node modules from the package.json
+---
+
+## Technologies & Code Snippets
+#### * Figma (for initial wireframing), HTML, CSS, JavaScript, Node.JS, Express, Sequelize, PostgresQL, EJS-layouts, Passport, Session, Flash, Method-Override
+#### * Sample code:
+#### 
+```
+router.put('/:name/:id', (req, res) => {
+    db.baby.findOne({
+        where: {
+            name: req.params.name, 
+            userId: req.user.id,
+        }
+    }).then((baby) => {
+        db.post.findOne({
+            where: {
+                babyId: baby.id,
+                id: req.params.id,
+            }
+        }).then((post) => {
+            post.height= req.body.height;
+            post.weight= req.body.weight;
+            post.img= req.body.img;
+            post.title= req.body.title;
+            post.firsts= req.body.firsts;
+            post.favorites= req.body.favorites;
+            post.babyId= req.body.babyId;
+            post.save().then((post) => {
+                res.redirect('/profile/' + req.params.name);
+            }).catch((error) =>{
+                console.log(error);
+            })                   
+        }).catch((error) => {
+                res.render('partials/alerts')
+        })
+    }).catch((error) => {
+        res.render('partials/alerts')
+    })
+})    
 
 ```
-npm install
+
+
+#### 
+```
+require('dotenv').config();
+const AWS = require ('aws-sdk')
+const fs = require('fs')
+
+// sets AWS version globally and assigns it to s3 variable
+const BUCKET_NAME = "firststeps-assets"
+const s3 = new AWS.S3({
+  accessKeyId: ID,
+  secretAccessKey: SECRET,
+  accessKeyId:process.env.AWS_ID,
+  secretAccessKey: process.env.AWS_SECRET_KEY
+})
+
+const uploadFile = (fileName)=>{
+   // read content from the filenName
+   const fileContent =fs.readFileSync(fileName);
+
+   // setting up S3 upload parameters
+   const params ={
+      Bucket: BUCKET_NAME,
+      Key: '01month.jpg',  //file name you want to save as in S3
+      Body: fileContent
+      // other parameters can be added, such as ContentType (file type) and ContentLength (file size)
+   };
+   // uploading files to the bucket
+   s3.upload(params, function(err, data){
+      if (err){
+         throw err;
+      }
+      console.log(`File uploaded succsessfully. ${data.Location}`)
+   });
+};
+
+uploadFile('01month.jpg')
+
 ```
 
-(Or just `npm i` for short)
 
-#### 4. Customize with new project name
 
-Remove defaulty type stuff. Some areas to consider are:
 
-* Title in `layout.ejs`
-* Description/Repo Link in `package.json`
-* Remove boilerplate's README content and replace with new project's readme
 
-#### 5. Create a new database for the new project
+---
 
-Using the sequelize command line interface, you can create a new database from the terminal.
+### Site can be seen **[here.]**
 
-```
-createdb <new_db_name>
-```
+---
+## Credits
+#### Our teammates, our General Assembly instructors, TAs, and class mates were very helpful, as well as numerous MDN and W3Schools articles for understanding CRUD. 
 
-#### 6. Update `config.json`
+---
 
-* Change the database name
-* Other settings are likely okay, but check username, password, and dialect
+## Future development
+#### Additions to come will be integrated image uploader capability, image carousel functionality so user can have iamge albums on posts, error logs to post for improved user experience. 
 
-#### 7. Check the models and migrations for relevance to your project's needs
-
-For example, if your project requires a birthdate field, then don't add that in there. 
-
-> When changing your models, update both the model and the migration.
-
-#### 8. Run the migrations
-
-```
-sequelize db:migrate
-```
-
-#### 9. Add a `.env` file with the following fields:
-
-* SESSION_SECRET: Can be any random string; usually a hash in production
-* PORT: Usually 3000 or 8000
-
-#### 10. Run server; make sure it works
-
-```
-nodemon
-```
-
-or
-
-```
-node index.js
-```
