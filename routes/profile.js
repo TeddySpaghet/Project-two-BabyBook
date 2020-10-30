@@ -3,6 +3,7 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 const db = require('../models')
 const router = express.Router();
 
+
 //profile page get route
 
 router.get('/', isLoggedIn, (req, res) => {
@@ -116,10 +117,11 @@ router.post('/:name', (req, res) => {
         favorites: req.body.favorites,
         babyId: req.body.babyId,
     }).then((post) => {
-        console.log("post created!!!! NICE line 85")
-        res.redirect('/profile/' + req.params.name)
+        console.log("post created!!!! NICE line 85");
+        res.redirect('/profile/' + req.params.name);
     }).catch((error) => {
         req.flash('error', error.message);
+        res.redirect('/profile/' + req.params.name);
     })
 })
 
