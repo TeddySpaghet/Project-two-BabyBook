@@ -1,5 +1,5 @@
 'use strict';
-const db        = {};
+const db = {};
 (async () => {
 
   const fs        = require('fs');
