@@ -9,8 +9,8 @@ const url = `https://${vault}.vault.azure.net`;
 const vaultUtility = async () => {
   try {
     const database = await client.getSecret('firstyeardb');
-    const database = await client.getSecret('firstyearuser');
-    const database = await client.getSecret('firstyearpassword');
+    const username = await client.getSecret('firstyearuser');
+    const password = await client.getSecret('firstyearpassword');
 
     return {
       development: {
