@@ -13,11 +13,11 @@ const methodOverride = require('method-override');
 const { runInNewContext } = require('vm');
 
 // sets AWS version globally 
-const BUCKET_NAME = 'firststeps_assets'
-const s3 = new AWS.S3({
-  accessKeyId:process.env.AWS_ID,
-  secretAccessKey: process.env.AWS_SECRET_KEY
-})
+// const BUCKET_NAME = 'firststeps_assets'
+// const s3 = new AWS.S3({
+//   accessKeyId:process.env.AWS_ID,
+//   secretAccessKey: process.env.AWS_SECRET_KEY
+// })
 
 
 

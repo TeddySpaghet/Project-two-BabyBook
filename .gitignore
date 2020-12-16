@@ -1,6 +1,6 @@
 .env
 node_modules
 package-lock.json
-config/config.json
+configbackup.json
 planningDeliverables
 create-bucket.js

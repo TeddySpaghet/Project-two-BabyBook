@@ -13,7 +13,10 @@
     "supertest": "^4.0.2"
   },
   "dependencies": {
+    "@azure/identity": "^1.2.0",
+    "@azure/keyvault-secrets": "^4.1.0",
     "aws-sdk": "^2.778.0",
+    "azure-cli": "^0.10.20",
     "bcrypt": "^5.0.0",
     "connect-flash": "^0.1.1",
     "dotenv": "^8.2.0",
