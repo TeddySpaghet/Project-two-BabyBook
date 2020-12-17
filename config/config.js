@@ -20,7 +20,12 @@ const vaultUtility = async () => {
         database: database.value,
         host: "firstyearpsql.postgres.database.azure.com",
         dialect: 'postgres',
-        encrypt: 'true'
+        encrypt: 'true',
+        "dialectOptions": {
+          "ssl": {
+            "require": true
+          }
+        }
       },
       test: {
         username: username.value,
@@ -28,7 +33,12 @@ const vaultUtility = async () => {
         database: database.value,
         host: "firstyearpsql.postgres.database.azure.com",
         dialect: 'postgres',
-        encrypt: 'true'
+        encrypt: 'true',
+        "dialectOptions": {
+          "ssl": {
+            "require": true
+          }
+        }
       },      
       production: {
         username: username.value,
@@ -36,7 +46,12 @@ const vaultUtility = async () => {
         database: database.value,
         host: "firstyearpsql.postgres.database.azure.com",
         dialect: 'postgres',
-        encrypt: 'true'
+        encrypt: 'true',
+        "dialectOptions": {
+          "ssl": {
+            "require": true
+          }
+        }
       },
     };
   } catch (err) {
