@@ -6,7 +6,9 @@ name: Build and deploy Node.js app to Azure Web App - firstyear
 on:
   push:
     branches:
-      - Ted
+      - Ted  
+env: 
+  CI: false
 
 jobs:
   build-and-deploy:
@@ -18,7 +20,7 @@ jobs:
     - name: Set up Node.js version
       uses: actions/setup-node@v1
       with:
-        node-version: '14.x'
+        node-version: '12.x'
 
     - name: npm install, build, and test
       run: |
