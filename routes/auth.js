@@ -4,9 +4,6 @@ const passport = require('../config/ppConfig');
 const router = express.Router();
 
 
-
-
-
 router.get('/signup', (req, res) => {
   res.render('auth/signup');
 });
