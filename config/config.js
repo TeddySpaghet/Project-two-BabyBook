@@ -1,3 +1,4 @@
+const client = new SecretClient(url, credential);
 const { DefaultAzureCredential } = require('@azure/identity');
 const { SecretClient } = require('@azure/keyvault-secrets');
 
@@ -42,9 +43,5 @@ const vaultUtility = async () => {
     console.log(err);
   }
 };
-(async ()=>{
-  const test = await vaultUtility();
-  console.log(test);
-})() 
 
 module.exports = vaultUtility;
