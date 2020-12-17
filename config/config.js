@@ -25,7 +25,8 @@ const vaultUtility = async () => {
         ssl: true,
         "dialectOptions": {
           "ssl": {
-            "require": true
+            "require": true,
+            rejectUnauthorized: false
           }
         }
       },
@@ -40,7 +41,8 @@ const vaultUtility = async () => {
         ssl: true,
         "dialectOptions": {
           "ssl": {
-            "require": true
+            "require": true,
+            rejectUnauthorized: false
           }
         }
       },      
@@ -55,7 +57,8 @@ const vaultUtility = async () => {
         ssl: true,
         "dialectOptions": {
           "ssl": {
-            "require": true
+            "require": true,
+            rejectUnauthorized: false
           }
         }
       },
