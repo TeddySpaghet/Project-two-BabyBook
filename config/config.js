@@ -21,6 +21,7 @@ const vaultUtility = async () => {
         host: "firstyearpsql.postgres.database.azure.com",
         dialect: 'postgres',
         encrypt: 'true',
+        ssl: true,
         "dialectOptions": {
           "ssl": {
             "require": true
@@ -34,6 +35,7 @@ const vaultUtility = async () => {
         host: "firstyearpsql.postgres.database.azure.com",
         dialect: 'postgres',
         encrypt: 'true',
+        ssl: true,
         "dialectOptions": {
           "ssl": {
             "require": true
@@ -47,6 +49,7 @@ const vaultUtility = async () => {
         host: "firstyearpsql.postgres.database.azure.com",
         dialect: 'postgres',
         encrypt: 'true',
+        ssl: true,
         "dialectOptions": {
           "ssl": {
             "require": true
