@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "NODE_ENV=test node_modules/mocha/bin/mocha"
+    "start": "node server.js"
   },
   "license": "ISC",
   "devDependencies": {
