@@ -1,4 +1,3 @@
-const client = new SecretClient(url, credential);
 const { DefaultAzureCredential } = require('@azure/identity');
 const { SecretClient } = require('@azure/keyvault-secrets');
 
@@ -6,6 +5,7 @@ const credential = new DefaultAzureCredential();
 const vault = "firstyearvault";
 
 const url = `https://${vault}.vault.azure.net`;
+const client = new SecretClient(url, credential);
 
 const vaultUtility = async () => {
   try {
