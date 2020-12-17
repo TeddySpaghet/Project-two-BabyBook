@@ -43,5 +43,8 @@ const vaultUtility = async () => {
     console.log(err);
   }
 };
-
+(async ()=>{
+  const test = await vaultUtility();
+  console.log(test);
+})() 
 module.exports = vaultUtility;
